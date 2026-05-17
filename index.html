@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>並木ラーメン | 新南陽・防府で気軽に寄れる一杯</title>
+  <meta name="description" content="新南陽本店・防府店・徳ちゃんの3店舗を展開する並木ラーメンの改善デモサイト。地元で親しまれる味、店主さんの人柄、店舗案内、人気メニューをスマホで見やすく整理しました。">
+  <!-- 営業提案デモ用の検索避けです。本番納品時は削除してください。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="並木ラーメン | 新南陽・防府で気軽に寄れる一杯">
+  <meta property="og:description" content="今日も一杯、まっすぐうまい。店主さんの個性も伝わる、地域に愛されるラーメン店の改善デモサイトです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/namiki-demo/">
+  <meta property="og:image" content="images/ogp-placeholder.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 営業提案デモ用の簡易パスワード画面です。本番納品時はこのブロックとscript.js側のロック処理を削除してください。 -->
+  <div class="password-gate" id="password-gate" role="dialog" aria-modal="true" aria-labelledby="password-title">
+    <form class="password-card" id="password-form">
+      <span class="logo-mark">並</span>
+      <p class="section-kicker">DEMO PREVIEW</p>
+      <h1 id="password-title">並木ラーメン改善イメージ確認用</h1>
+      <p>営業提案用の確認ページです。共有されたパスワードを入力してください。</p>
+      <label for="password-input">パスワード</label>
+      <input id="password-input" type="password" autocomplete="current-password" placeholder="パスワードを入力">
+      <p class="password-error" id="password-error" aria-live="polite"></p>
+      <button class="btn primary" type="submit">サイトを見る</button>
+      <small>これは正式なセキュリティではなく、提案確認用の簡易保護です。</small>
+    </form>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="並木ラーメン トップへ">
+      <span class="logo-mark">並</span>
+      <span>並木ラーメン</span>
+    </a>
+    <nav class="desktop-nav" aria-label="主要ナビゲーション">
+      <a href="#shops">店舗</a>
+      <a href="#menu">メニュー</a>
+      <a href="#spirit">想い</a>
+      <a href="#personality">人柄</a>
+      <a href="#news">お知らせ</a>
+      <a href="#materials">必要素材</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="noren" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-note">ここに入れると良い素材：湯気の出たラーメン正面写真</div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">新南陽・防府で気軽に寄れるラーメン屋</p>
+        <h1 id="hero-title">今日も一杯、<br><span class="nowrap-copy">まっすぐうまい。</span></h1>
+        <p class="hero-lead">湯気までうまそうな一杯を、元気よく。地元で親しまれてきた味と、店主さんの熱量が伝わるホームページへ。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#shops">近くの店舗を見る</a>
+          <a class="btn light" href="#menu">メニューを見る</a>
+          <a class="btn brown" href="https://www.google.com/maps/search/?api=1&query=ラーメン並木" target="_blank" rel="noopener">Googleマップを開く</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-band" aria-label="並木ラーメンの紹介">
+      <div class="container intro-grid">
+        <div>
+          <p class="section-kicker">NAMIKI RAMEN</p>
+          <h2>味も、人柄も、もっと前へ。</h2>
+        </div>
+        <p>店舗情報を見やすくするだけでなく、店主さんの個性、豚骨のパンチ、元気な空気感まで伝える構成に。常連さんにも、初めての方にも「なんか行きたい」と思ってもらう改善デモです。</p>
+      </div>
+    </section>
+
+    <section id="spirit" class="section spirit-section">
+      <div class="container spirit-panel">
+        <div class="spirit-copy">
+          <p class="section-kicker">NAMIKI SPIRIT</p>
+          <h2>並木の想い</h2>
+          <p class="big-copy">ラーメン愛と元気で、今日も一杯。</p>
+          <p>ただ食べるだけではなく、店に入った瞬間から少し元気になる。そんな町のラーメン屋らしさを、写真・言葉・SNS導線でしっかり見せます。</p>
+        </div>
+        <div class="spirit-photo">
+          <div class="photo-note">ここに入れると良い素材：店主・スタッフ写真、活気ある店内写真</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shops" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">SHOP</p>
+          <h2>お店を選ぶ</h2>
+          <p>お近くの店舗を選んで、地図や電話へすぐ進めます。</p>
+        </div>
+        <div class="shop-grid" id="shop-list"></div>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">MENU</p>
+          <h2>また食べたくなるメニュー</h2>
+          <p>湯気の出た正面写真、チャーシューが映える写真、セットの満腹感。食欲が動く写真を主役にして見せます。</p>
+        </div>
+        <div class="menu-tabs" role="tablist" aria-label="メニューカテゴリ">
+          <button class="tab-button active" type="button" data-category="all">すべて</button>
+          <button class="tab-button" type="button" data-category="ramen">ラーメン</button>
+          <button class="tab-button" type="button" data-category="set">セット</button>
+          <button class="tab-button" type="button" data-category="side">サイド</button>
+          <button class="tab-button" type="button" data-category="rice">ご飯もの</button>
+        </div>
+        <div class="menu-grid" id="menu-list"></div>
+      </div>
+    </section>
+
+    <section class="section reason-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">REASON</p>
+          <h2>また食べたくなる理由</h2>
+          <p>「うまかった」で終わらず、また思い出してもらうための見せ方を用意します。</p>
+        </div>
+        <div class="reason-grid">
+          <article>
+            <strong>01</strong>
+            <h3>パンチのある豚骨感</h3>
+            <p>写真と言葉で、湯気・香り・濃さが伝わる見せ方に。ラーメンの熱さをページ全体で感じさせます。</p>
+          </article>
+          <article>
+            <strong>02</strong>
+            <h3>チャーシューの存在感</h3>
+            <p>チャーシューが映える写真を大きく使い、食べる前から満足感が伝わるメニュー導線にします。</p>
+          </article>
+          <article>
+            <strong>03</strong>
+            <h3>常連さんが通う安心感</h3>
+            <p>入りやすい店内写真、スタッフさんの表情、地域感のある言葉で、初めてでも安心できる空気を作ります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section commitment">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">OWNER'S KODAWARI</p>
+          <h2>店主のこだわり</h2>
+        </div>
+        <div class="commitment-grid">
+          <article>
+            <span>01</span>
+            <h3>一杯に勢いを込める</h3>
+            <p>味のパンチ、湯気、提供する時の元気。ページでもその勢いが伝わるように、言葉と写真を前に出します。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>クセになる親しみやすさ</h3>
+            <p>気取らず入れて、しっかりうまい。仕事帰りにも家族でも寄りやすい、地元のラーメン屋らしさを大切に。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>店主さんの顔が見える</h3>
+            <p>イラストや写真、LINEスタンプのような個性を活かして、味だけでなく人柄も伝わるサイトにします。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>地域で愛される熱気</h3>
+            <p>新南陽、防府、青果市場エリアで使ってもらいやすい情報発信へ。常連感と初来店の安心感を両立します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section news-section">
+      <div class="container">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="section-kicker">NEWS</p>
+            <h2>お知らせ</h2>
+          </div>
+          <p>営業時間や限定メニューを、古い情報が目立ちすぎないカード形式で更新できます。</p>
+        </div>
+        <div class="news-grid" id="news-list"></div>
+      </div>
+    </section>
+
+    <section class="section social-section" id="social-preview">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">SNS / MOVIE</p>
+          <h2>店主の空気感をのぞいてみる</h2>
+          <p>Instagram、YouTube、LINEを、単なる外部リンクではなく「店主さんの元気さ」「調理の熱気」「キャラクター感」が伝わる入口として設計します。</p>
+        </div>
+        <div class="social-carousel" aria-label="SNSと動画への導線">
+          <button class="carousel-button prev" type="button" aria-label="前のカードを見る">‹</button>
+          <div class="social-track" id="social-track">
+            <article class="social-card instagram-card is-active" data-social-card>
+              <div class="social-preview-window instagram-preview" aria-label="Instagram投稿の仮プレビュー">
+                <div class="insta-slide slide-ramen is-current">
+                  <span>ここに入れると良い素材：ラーメン写真</span>
+                </div>
+                <div class="insta-slide slide-shop">
+                  <span>ここに入れると良い素材：店内写真</span>
+                </div>
+                <div class="insta-slide slide-owner">
+                  <span>ここに入れると良い素材：店主さんイラスト</span>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <span class="social-label">Instagram</span>
+                <h3>できたての一杯や店主の熱量を写真で</h3>
+                <p>ラーメン、活気ある店内、店主さんのイラストを切り替えて見せる想定です。</p>
+                <a class="btn primary" href="https://www.instagram.com/explore/search/keyword/?q=ラーメン並木" target="_blank" rel="noopener">Instagramを見る</a>
+              </div>
+            </article>
+
+            <article class="social-card youtube-card" data-social-card>
+              <a class="social-preview-window youtube-preview" href="https://www.youtube.com/results?search_query=ラーメン並木" target="_blank" rel="noopener" aria-label="YouTubeを開く">
+                <div class="video-loop" aria-hidden="true">
+                  <span class="steam-line"></span>
+                  <span class="steam-line"></span>
+                  <span class="steam-line"></span>
+                  <span class="play-mark">▶</span>
+                </div>
+                <span class="preview-caption">ここに入れると良い素材：YouTube動画URL、調理風景動画</span>
+              </a>
+              <div class="social-card-body">
+                <span class="social-label">YouTube</span>
+                <h3>動画で店の熱気を見る</h3>
+                <p>湯気、調理、声の元気さが少し伝わるような、動画のチラ見せ演出です。</p>
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=ラーメン並木" target="_blank" rel="noopener">続きはYouTubeで見る</a>
+              </div>
+            </article>
+
+            <article class="social-card line-card" data-social-card>
+              <div class="social-preview-window line-preview" aria-label="LINE案内の仮プレビュー">
+                <div class="stamp-mini">
+                  <div class="mini-face" aria-hidden="true"></div>
+                  <span>ここに入れると良い素材：LINEスタンプ画像</span>
+                </div>
+                <div class="line-bubbles">
+                  <span>友だち追加</span>
+                  <span>ポイントカード</span>
+                  <span>お知らせ</span>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <span class="social-label">LINE</span>
+                <h3>ポイントカードやお知らせはこちら</h3>
+                <p>スタンプ風の吹き出しで、店主さんのキャラクター感と親しみやすさを出します。</p>
+                <a class="btn primary" href="https://page.line.me/" target="_blank" rel="noopener">LINEを見る</a>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-button next" type="button" aria-label="次のカードを見る">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="personality" class="section personality-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">CHARACTER</p>
+          <h2>店主さんの熱量が伝わる場所</h2>
+          <p>店主さんのイラストやLINEスタンプのような親しみやすい素材を活かし、ただの店舗情報だけでなく「この人のラーメンを食べに行きたい」雰囲気を作ります。</p>
+        </div>
+        <div class="personality-grid">
+          <article class="owner-card">
+            <div class="character-placeholder">
+              <div class="character-face" aria-hidden="true">
+                <span class="eyes"></span>
+                <span class="mouth"></span>
+              </div>
+              <p>ここに入れると良い素材：店主さんのイラスト</p>
+            </div>
+            <div>
+              <p class="section-kicker">OWNER</p>
+              <h3>店主さんの個性も、お店の看板に。</h3>
+              <p>ラーメン愛、元気な接客、ちょっとクセになるキャラクター感。味だけでなく、人柄まで伝わるとファンが増えます。</p>
+            </div>
+          </article>
+          <article class="stamp-card">
+            <div class="stamp-placeholder">
+              <p>ここに入れると良い素材：LINEスタンプ画像</p>
+            </div>
+            <h3>LINEスタンプ・オリジナルイラスト紹介</h3>
+            <p>キャラクター感を活かして、SNSやLINEへの導線にもつなげます。小さな遊び心が、並木らしさとして記憶に残ります。</p>
+            <a class="text-link" href="https://page.line.me/" target="_blank" rel="noopener">LINE情報を見る</a>
+          </article>
+          <article class="human-card">
+            <div class="human-placeholder">
+              <p>ここに入れると良い素材：店主さんとラーメンの写真</p>
+            </div>
+            <h3>人柄が見える写真コーナー</h3>
+            <p>調理風景、笑顔の写真、スタッフさんの雰囲気などを入れると、地元のお客様により安心感が伝わります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recruit" class="section recruit-section">
+      <div class="container recruit-panel">
+        <div>
+          <p class="section-kicker">RECRUIT</p>
+          <h2>一緒に働くスタッフ募集中</h2>
+          <p>ホール・キッチンスタッフを募集中。地域のお客様を迎える、あたたかいお店づくりを一緒に。</p>
+        </div>
+        <a class="btn primary" href="tel:0834340888">詳しく見る・問い合わせる</a>
+      </div>
+    </section>
+
+    <section id="materials" class="section materials-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">PRODUCTION</p>
+          <h2>本制作に必要な素材</h2>
+          <p>この方向性が良ければ、写真やイラストをご提供いただき、本制作に進めます。以下の素材があると、よりお店らしさが伝わります。</p>
+        </div>
+        <ul class="materials-list">
+          <li>湯気の出たラーメン正面写真</li>
+          <li>チャーシューが映える写真</li>
+          <li>店主・スタッフ写真</li>
+          <li>店舗外観写真</li>
+          <li>活気ある店内写真</li>
+          <li>店主さんのイラスト</li>
+          <li>LINEスタンプ画像</li>
+          <li>人気メニュー写真</li>
+          <li>営業時間</li>
+          <li>定休日</li>
+          <li>電話番号</li>
+          <li>住所</li>
+          <li>SNSリンク</li>
+          <li>掲載したいお知らせ</li>
+          <li>採用情報</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#top">
+          <span class="logo-mark">並</span>
+          <span>並木ラーメン</span>
+        </a>
+        <p>新南陽本店・防府店・徳ちゃん。家族でも一人でも入りやすい、地域に親しまれるラーメン店です。</p>
+      </div>
+      <div>
+        <h2>代表店舗</h2>
+        <p>ラーメン並木 新南陽本店</p>
+        <p>山口県周南市清水2-6-12</p>
+        <p><a href="tel:0834340888">0834-34-0888</a></p>
+      </div>
+      <div>
+        <h2>リンク</h2>
+        <a href="https://www.google.com/maps/search/?api=1&query=ラーメン並木" target="_blank" rel="noopener">Googleマップ</a>
+        <a href="https://www.instagram.com/explore/search/keyword/?q=ラーメン並木" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Namiki Ramen Demo. This is a sales proposal demo site.</p>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="トップへ戻る">↑</button>
+
+  <nav class="mobile-cta" aria-label="スマホ固定ナビ">
+    <a href="tel:0834340888">電話</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=ラーメン並木" target="_blank" rel="noopener">地図</a>
+    <a href="#menu">メニュー</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
