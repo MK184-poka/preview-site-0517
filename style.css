@@ -339,6 +339,10 @@ h3 {
   line-height: 1.35;
 }
 
+.sp-only {
+  display: none;
+}
+
 .hero-lead {
   max-width: 620px;
   margin-bottom: 24px;
@@ -1374,10 +1378,29 @@ h3 {
     padding-bottom: 82px;
   }
 
+  .sp-only {
+    display: block;
+  }
+
   .container {
     width: 100%;
     max-width: 100%;
     padding-inline: 16px;
+  }
+
+  .section-heading h2,
+  .social-section h2 {
+    max-width: 100%;
+    font-size: clamp(2rem, 8.6vw, 3rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .social-section .section-heading h2 {
+    width: 100%;
   }
 
   .hero {
