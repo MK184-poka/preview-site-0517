@@ -1544,28 +1544,40 @@ h3 {
   }
 
   .social-section {
+    overflow-x: hidden;
     padding-bottom: 116px;
   }
 
   .social-carousel {
-    width: 100%;
-    padding-bottom: 60px;
-    overflow: hidden;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 0;
+    overflow: visible !important;
   }
 
   .social-track {
-    grid-auto-columns: minmax(0, calc(100vw - 32px));
-    gap: 12px;
-    width: 100%;
-    max-width: 100%;
-    padding: 4px 0 18px;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding: 4px 0 0;
+    transform: none !important;
+    scroll-snap-type: none;
   }
 
   .social-card {
-    width: calc(100vw - 32px);
-    max-width: calc(100vw - 32px);
-    min-width: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     min-height: 520px;
+    margin: 0 0 24px !important;
+    flex: none !important;
+    transform: none !important;
+    scroll-snap-align: none;
+  }
+
+  .social-card:last-child {
+    margin-bottom: 0 !important;
   }
 
   .social-card-body {
@@ -1641,18 +1653,7 @@ h3 {
   }
 
   .carousel-button {
-    top: auto;
-    bottom: 6px;
-    width: 38px;
-    height: 38px;
-  }
-
-  .carousel-button.prev {
-    left: calc(50% - 48px);
-  }
-
-  .carousel-button.next {
-    right: calc(50% - 48px);
+    display: none !important;
   }
 }
 

@@ -117,6 +117,10 @@ let socialTimer = null;
 let instaTimer = null;
 let currentInstaIndex = 0;
 
+function isSocialStackedMobile() {
+  return window.innerWidth <= 768;
+}
+
 function unlockDemo() {
   sessionStorage.setItem(PASSWORD_SESSION_KEY, "true");
   passwordGate?.classList.add("is-unlocked");
@@ -203,6 +207,13 @@ function renderNews() {
 
 function setSocialCard(index, shouldScroll = true) {
   if (!socialCards.length) return;
+  if (isSocialStackedMobile()) {
+    currentSocialIndex = 0;
+    socialCards.forEach((card) => card.classList.remove("is-active"));
+    socialTrack.scrollLeft = 0;
+    return;
+  }
+
   currentSocialIndex = (index + socialCards.length) % socialCards.length;
   socialCards.forEach((card, cardIndex) => {
     card.classList.toggle("is-active", cardIndex === currentSocialIndex);
@@ -220,7 +231,7 @@ function setSocialCard(index, shouldScroll = true) {
 }
 
 function startSocialCarousel() {
-  if (motionQuery.matches || socialTimer || window.innerWidth >= 980) return;
+  if (motionQuery.matches || socialTimer || isSocialStackedMobile() || window.innerWidth >= 980) return;
   socialTimer = window.setInterval(() => {
     setSocialCard(currentSocialIndex + 1);
   }, 4200);
@@ -263,19 +274,21 @@ window.addEventListener("scroll", () => {
 });
 
 prevButton?.addEventListener("click", () => {
+  if (isSocialStackedMobile()) return;
   stopSocialCarousel();
   setSocialCard(currentSocialIndex - 1);
   startSocialCarousel();
 });
 
 nextButton?.addEventListener("click", () => {
+  if (isSocialStackedMobile()) return;
   stopSocialCarousel();
   setSocialCard(currentSocialIndex + 1);
   startSocialCarousel();
 });
 
 socialTrack?.addEventListener("scroll", () => {
-  if (window.innerWidth >= 980) return;
+  if (isSocialStackedMobile() || window.innerWidth >= 980) return;
   const trackCenter = socialTrack.scrollLeft + socialTrack.clientWidth / 2;
   let nearestIndex = 0;
   let nearestDistance = Infinity;
@@ -290,6 +303,13 @@ socialTrack?.addEventListener("scroll", () => {
   });
 
   setSocialCard(nearestIndex, false);
+});
+
+window.addEventListener("resize", () => {
+  if (!isSocialStackedMobile()) return;
+  stopSocialCarousel();
+  socialTrack.scrollLeft = 0;
+  socialCards.forEach((card) => card.classList.remove("is-active"));
 });
 
 if (socialSection) {
