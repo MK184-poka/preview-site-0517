@@ -209,10 +209,12 @@ function setSocialCard(index, shouldScroll = true) {
   });
 
   if (shouldScroll && window.innerWidth < 980) {
-    socialCards[currentSocialIndex].scrollIntoView({
-      behavior: motionQuery.matches ? "auto" : "smooth",
-      block: "nearest",
-      inline: "center"
+    const activeCard = socialCards[currentSocialIndex];
+    const targetLeft = activeCard.offsetLeft - (socialTrack.clientWidth - activeCard.clientWidth) / 2;
+
+    socialTrack.scrollTo({
+      left: targetLeft,
+      behavior: motionQuery.matches ? "auto" : "smooth"
     });
   }
 }

@@ -16,19 +16,25 @@
   --radius: 20px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
+  width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
   margin: 0;
   color: var(--ink);
   font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   line-height: 1.75;
+  overflow-x: hidden;
   overflow-wrap: anywhere;
   line-break: strict;
   background:
@@ -703,6 +709,7 @@ h3 {
 
 .social-section {
   overflow: hidden;
+  max-width: 100%;
   background:
     radial-gradient(circle at 88% 16%, rgba(255, 212, 71, 0.36), transparent 24%),
     linear-gradient(180deg, #fffdf6, #fff4d5);
@@ -710,6 +717,9 @@ h3 {
 
 .social-carousel {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .social-track {
@@ -717,8 +727,11 @@ h3 {
   grid-auto-flow: column;
   grid-auto-columns: minmax(280px, 86%);
   gap: 16px;
+  max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 4px 2px 18px;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
@@ -728,6 +741,9 @@ h3 {
 }
 
 .social-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 520px;
   display: grid;
   grid-template-rows: 260px 1fr;
@@ -777,17 +793,23 @@ h3 {
 }
 
 .social-card-body h3 {
+  max-width: 100%;
   margin-bottom: 0;
   word-break: keep-all;
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .social-card-body p {
+  max-width: 100%;
   margin-bottom: 4px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .social-card-body .btn {
   width: 100%;
+  max-width: 100%;
   margin-top: 6px;
 }
 
@@ -814,6 +836,7 @@ h3 {
 .insta-slide span,
 .preview-caption,
 .stamp-mini span {
+  display: block;
   max-width: 250px;
   padding: 10px 12px;
   color: #6d4027;
@@ -824,6 +847,8 @@ h3 {
   font-size: 13px;
   font-weight: 900;
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .slide-ramen {
@@ -1345,6 +1370,16 @@ h3 {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: 82px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 16px;
+  }
+
   .hero {
     min-height: auto;
     display: grid;
@@ -1466,49 +1501,99 @@ h3 {
     font-size: 13px;
   }
 
+  .btn {
+    max-width: 100%;
+    min-width: 0;
+    padding-inline: 14px;
+    white-space: nowrap;
+  }
+
   .mobile-cta {
+    left: 8px;
+    right: 8px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .mobile-cta a {
     min-width: 0;
+    padding-inline: 6px;
+    white-space: nowrap;
   }
 
   .social-section {
-    padding-bottom: 96px;
+    padding-bottom: 116px;
   }
 
   .social-carousel {
-    padding-bottom: 58px;
+    width: 100%;
+    padding-bottom: 60px;
+    overflow: hidden;
   }
 
   .social-track {
-    grid-auto-columns: minmax(300px, 92%);
-    gap: 14px;
-    padding-inline: 4px;
+    grid-auto-columns: minmax(0, calc(100vw - 32px));
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    padding: 4px 0 18px;
   }
 
   .social-card {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    min-width: 0;
     min-height: 520px;
   }
 
   .social-card-body {
     justify-items: center;
-    padding: 20px 18px 22px;
+    padding: 18px 16px 22px;
     text-align: center;
   }
 
-  .social-card-body .btn {
-    width: fit-content;
+  .social-card-body h3,
+  .social-card-body p {
+    width: 100%;
     max-width: 100%;
-    min-width: min(240px, 100%);
-    padding-inline: 18px;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  .social-card-body .btn {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-inline: 12px;
+    white-space: nowrap;
   }
 
   .insta-slide span,
   .preview-caption,
   .stamp-mini span {
-    max-width: min(260px, 86%);
+    max-width: min(230px, 82%);
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .instagram-preview .insta-slide span,
+  .youtube-preview .preview-caption,
+  .line-preview .stamp-mini span {
+    font-size: 0;
+  }
+
+  .instagram-preview .insta-slide span::after {
+    content: "素材：写真・店内";
+    font-size: 12px;
+  }
+
+  .youtube-preview .preview-caption::after {
+    content: "素材：動画・調理風景";
+    font-size: 12px;
+  }
+
+  .line-preview .stamp-mini span::after {
+    content: "素材：LINEスタンプ";
+    font-size: 12px;
   }
 
   .line-preview {
@@ -1526,20 +1611,25 @@ h3 {
   .line-bubbles span {
     width: auto;
     max-width: min(220px, 100%);
+    min-width: 0;
+    padding-inline: 10px;
+    overflow-wrap: anywhere;
     white-space: nowrap;
   }
 
   .carousel-button {
     top: auto;
-    bottom: 4px;
+    bottom: 6px;
+    width: 38px;
+    height: 38px;
   }
 
   .carousel-button.prev {
-    left: calc(50% - 58px);
+    left: calc(50% - 48px);
   }
 
   .carousel-button.next {
-    right: calc(50% - 58px);
+    right: calc(50% - 48px);
   }
 }
 
